@@ -1,0 +1,39 @@
+snippet clog Quick Console
+				console.log("${1}", ${2:$1})
+
+snippet proto
+	${1:class_name}.prototype.${2:method_name} = function(${3}) {
+		${0:${VISUAL}}
+	};
+
+snippet jhook Init Hooks
+  import { ref, reactive } from 'vue'
+  
+  export default (/** TODO */) => {
+
+  }
+
+snippet jref Init A ref
+  const $1 = ref<${2:any}>($3)
+
+snippet jreactive Init A ref
+  const $1 = reactive<${2:any}>(${3: /** Must!!!!*/})
+
+snippet jstore Init A Pinia Store
+  import { defineStore } from 'pinia'
+
+  export const use${1: name}Store = defineStore<
+    '$1',
+    {
+      // state interface
+    },
+    {},
+    {
+      // actions interface
+    }
+  >('$1', {
+    state: () => ({${2}}),
+
+    actions: {},
+  })
+

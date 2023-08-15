@@ -1,0 +1,91 @@
+snippet jbutton "Antd Button"
+				<Button type="${1:primary}">${2}</Button>
+
+snippet jlog Quick Console
+				console.log("${1}", ${2:$1})
+
+snippet jlogg Quick Console
+				console.log("---------------Log--------------")
+
+snippet jpage Init Tsx Page
+				// import { Button, message, Table, Tag } from '@jidu/robot-ui'
+				import { defineComponent, ref, watch } from 'vue'
+				import { PageWrapper } from '/@/components/Page'
+				// import styles from './index.module.less'
+
+				export default defineComponent({
+					setup() {
+						return () => (
+							<PageWrapper>
+								<div>${1:page name}</div>
+							</PageWrapper>
+						)
+					},
+				})
+
+snippet jtable:tsx Init Tsx Table
+				{/*
+					const ACTION_KEY = 'ACTION_KEY'
+
+					const dataSource = [
+						{
+							key: '1',
+							name: '胡彦斌',
+							age: 32,
+							address: '西湖区湖底公园1号',
+						},
+						{
+							key: '2',
+							name: '胡彦祖',
+							age: 42,
+							address: '西湖区湖底公园1号',
+						},
+					]
+
+					const columns = [
+						{
+							title: '姓名',
+							dataIndex: 'name',
+							key: 'name',
+						},
+						{
+							title: '年龄',
+							dataIndex: 'age',
+							key: 'age',
+						},
+						{
+							title: '住址',
+							dataIndex: 'address',
+							key: 'address',
+						},
+					]
+
+				*/}
+				<Table
+					columns={columns}
+					dataSource={dataSource}
+				>
+					{{
+            bodyCell: ({ text, column, record }: { text: any; column: typeof columns[0]; record: typeof dataSource[0] }) => {
+              if (column.key === ACTION_KEY) {
+                return (
+                  <>
+                    <Button type="link">点击生成</Button>
+                    <Button type="link">点击生成</Button>
+                    <Button type="link">点击生成</Button>
+                  </>
+                )
+              }
+            },
+					}}
+				</Table>
+
+snippet jmodal:confirm Modal.confirm api
+				Modal.confirm({
+					title: \`删除${1:xxx}\`,
+					content: \`确定删除${1}吗\`,
+					onOk: () => {
+						console.log('deleted')
+					},
+				})
+

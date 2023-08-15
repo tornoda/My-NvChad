@@ -9,9 +9,10 @@ M.treesitter = {
     "javascript",
     "typescript",
     "tsx",
-    "c",
+    -- "c",
     "markdown",
     "markdown_inline",
+    "vue"
   },
   indent = {
     enable = true,
@@ -31,7 +32,7 @@ M.mason = {
     "css-lsp",
     "html-lsp",
     "typescript-language-server",
-    "deno",
+    -- "deno",
     "prettier",
 
     -- c/cpp stuff
@@ -44,13 +45,17 @@ M.mason = {
 M.nvimtree = {
   git = {
     enable = true,
+    ignore = false
   },
 
   renderer = {
     highlight_git = true,
+    full_name = true,
     icons = {
       show = {
-        git = true,
+        git = false,
+        file = false,
+        folder = false
       },
     },
   },

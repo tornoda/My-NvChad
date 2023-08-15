@@ -149,12 +149,12 @@ M.lspconfig = {
       "lsp implementation",
     },
 
-    ["<leader>ls"] = {
-      function()
-        vim.lsp.buf.signature_help()
-      end,
-      "lsp signature_help",
-    },
+    -- ["<leader>ls"] = {
+    --   function()
+    --     vim.lsp.buf.signature_help()
+    --   end,
+    --   "lsp signature_help",
+    -- },
 
     ["<leader>D"] = {
       function()
@@ -170,12 +170,12 @@ M.lspconfig = {
       "lsp rename",
     },
 
-    ["<leader>ca"] = {
-      function()
-        vim.lsp.buf.code_action()
-      end,
-      "lsp code_action",
-    },
+    -- ["<leader>ca"] = {
+    --   function()
+    --     vim.lsp.buf.code_action()
+    --   end,
+    --   "lsp code_action",
+    -- },
 
     ["gr"] = {
       function()

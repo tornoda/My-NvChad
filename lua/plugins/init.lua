@@ -28,6 +28,11 @@ local default_plugins = {
     "NvChad/nvterm",
     init = function()
       require("core.utils").load_mappings "nvterm"
+
+      vim.api.nvim_create_user_command("TermBottom", function()
+        require("nvterm.terminal").new "horizontal"
+      end, {})
+
     end,
     config = function(_, opts)
       require "base46.term"

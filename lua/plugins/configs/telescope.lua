@@ -1,3 +1,6 @@
+-- 这个trouble没有了
+local trouble = require "trouble.providers.telescope"
+
 local options = {
   defaults = {
     vimgrep_arguments = {
@@ -11,24 +14,33 @@ local options = {
       "--smart-case",
     },
     prompt_prefix = "   ",
-    selection_caret = "  ",
+    selection_caret = "* ",
     entry_prefix = "  ",
     initial_mode = "insert",
     selection_strategy = "reset",
     sorting_strategy = "ascending",
-    layout_strategy = "horizontal",
+    -- layout_strategy = "horizontal",
+    layout_strategy = "vertical",
     layout_config = {
       horizontal = {
         prompt_position = "top",
         preview_width = 0.55,
         results_width = 0.8,
       },
-      vertical = {
-        mirror = false,
+      bottom_pane = {
+        height = 25,
+        preview_cutoff = 8,
+        prompt_position = "top",
       },
-      width = 0.87,
-      height = 0.80,
-      preview_cutoff = 120,
+      vertical = {
+        height = 0.9,
+        preview_cutoff = 8,
+        prompt_position = "top",
+        width = 0.8,
+      },
+      width = 0.85,
+      height = 0.40,
+      preview_cutoff = 8,
     },
     file_sorter = require("telescope.sorters").get_fuzzy_file,
     file_ignore_patterns = { "node_modules" },
@@ -45,7 +57,17 @@ local options = {
     -- Developer configurations: Not meant for general override
     buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
     mappings = {
-      n = { ["q"] = require("telescope.actions").close },
+      n = {
+        ["q"] = require("telescope.actions").close,
+        ["<c-l>"] = trouble.open_with_trouble,
+      },
+      i = {
+        ["<c-l>"] = trouble.open_with_trouble,
+        ["<C-j>"] = require("telescope.actions").move_selection_next,
+        ["<C-k>"] = require("telescope.actions").move_selection_previous,
+        ["<Down>"] = require("telescope.actions").cycle_history_next,
+        ["<Up>"] = require("telescope.actions").cycle_history_prev,
+      },
     },
   },
 
